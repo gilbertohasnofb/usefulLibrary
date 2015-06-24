@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from usefulLibrary.f95
-MD5:5d2d8366b25c8c39c3306915448e919f -- If you edit this, you'll get what you deserve.
+MD5:90518cb290a0e583fbdcabd379eb7bac -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -58,8 +58,8 @@ DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0 ASSUMED_SHAPE
 11 'text_string' '' '' 10 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
 0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
 14 'pitchl' '' '' 13 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
-UNKNOWN 0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (INTEGER 4 0
-0 0 INTEGER ()) 0 '8'))) 0 0 () () 0 () () () 0 0)
+UNKNOWN 0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () ()
+() 0 0)
 17 'midi' '' '' 16 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
 UNKNOWN 0 0 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 20 'pitchm' '' '' 19 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
