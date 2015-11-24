@@ -337,17 +337,21 @@ contains
 ! **********************************************************************************************************************************************************
 
   ! generates a random integer using a discrete gaussian distribution
-  subroutine RANDOM_INT_GAUSSIAN(output,N,centre,standard_deviation)
+  subroutine RANDOM_INT_GAUSSIAN(output,N,centre,standard_deviation,offset)
   
   integer, intent(OUT) :: output
   integer, intent(IN) :: N, centre
+  integer, intent(IN), optional :: offset
   real, intent(IN) :: standard_deviation ! values in the range centre +- standard_deviation will have 68% of chance of being choosen, while values in the range centre +- 2*standard_deviation have 95% of chance
   real :: gauss, gauss_sum, x, normalization_factor
-  integer :: i
+  integer :: i, offset_aux
+  
+  offset_aux = 0
+  if (present(offset)) offset_aux = offset
   
   normalization_factor = 0.0
   do i=1,N
-    gauss = exp( (real(i) - centre)**2 / (-2 * standard_deviation**2) )
+    gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) )
     normalization_factor = normalization_factor + gauss
   enddo
   
@@ -355,10 +359,10 @@ contains
   
   gauss_sum = 0.0
   do i=1,N
-    gauss = exp( (real(i) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
+    gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
     gauss_sum = gauss_sum + gauss
     if (x < gauss_sum) then
-      output = i
+      output = i + offset_aux
       exit
     endif
   enddo
