@@ -5,7 +5,7 @@
 !                                                                                                                                                            !
 !                                                     by Gilberto Agostinho (gilbertohasnofb@gmail.com)                                                      !
 !                                                                                                                                                            !
-!                                                          (current version created on 25/05/2015)                                                           !
+!                                                          (current version created on 24/11/2015)                                                           !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** !
 !                                                                                                                                                            !
@@ -22,6 +22,7 @@
 ! FtoM(real)                                                                                                                                                 !
 ! MtoL(integer)                                                                                                                                              !
 ! LtoM(character)                                                                                                                                            !
+! RANDOM_INT_GAUSSIAN(integer,integer,integer,real)                                                                                                          !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -332,6 +333,37 @@ contains
   LtoM = LtoM + 12 * octave
 
   end function LtoM
+
+! **********************************************************************************************************************************************************
+
+  ! generates a random integer using a discrete gaussian distribution
+  subroutine RANDOM_INT_GAUSSIAN(output,N,centre,standard_deviation)
+  
+  integer, intent(OUT) :: output
+  integer, intent(IN) :: N, centre
+  real, intent(IN) :: standard_deviation ! values in the range centre +- standard_deviation will have 68% of chance of being choosen, while values in the range centre +- 2*standard_deviation have 95% of chance
+  real :: gauss, gauss_sum, x, normalization_factor
+  integer :: i
+  
+  normalization_factor = 0.0
+  do i=1,N
+    gauss = exp( (real(i) - centre)**2 / (-2 * standard_deviation**2) )
+    normalization_factor = normalization_factor + gauss
+  enddo
+  
+  call RANDOM_NUMBER(x) ! random number satisfying 0 <= x < 1
+  
+  gauss_sum = 0.0
+  do i=1,N
+    gauss = exp( (real(i) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
+    gauss_sum = gauss_sum + gauss
+    if (x < gauss_sum) then
+      output = i
+      exit
+    endif
+  enddo
+
+  end subroutine RANDOM_INT_GAUSSIAN
 
 ! **********************************************************************************************************************************************************
 

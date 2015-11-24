@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from usefulLibrary.f95
-MD5:90518cb290a0e583fbdcabd379eb7bac -- If you edit this, you'll get what you deserve.
+MD5:abc9dfcade6043a13b94ba6175f64222 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -41,13 +41,16 @@ UNKNOWN 0 0 0 0 UNKNOWN ()) 22 0 (23 24 25 26) () 0 () () () 0 0)
 27 'random_int' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
 0 UNKNOWN ()) 28 0 (29 30 31) () 0 () () () 0 0)
-32 'serialize' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+32 'random_int_gaussian' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 33
+0 (34 35 36 37) () 0 () () () 0 0)
+38 'serialize' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
-0 UNKNOWN ()) 33 0 (34 35 36) () 0 () () () 0 0)
-37 'sleep_ms' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
-MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 38
-0 (39) () 0 () () () 0 0)
-40 'usefullibrary' 'usefullibrary' '' 1 ((MODULE UNKNOWN-INTENT
+0 UNKNOWN ()) 39 0 (40 41 42) () 0 () () () 0 0)
+43 'sleep_ms' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 44
+0 (45) () 0 () () () 0 0)
+46 'usefullibrary' 'usefullibrary' '' 1 ((MODULE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
 0 () () () 0 0)
 4 'a' '' '' 3 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
@@ -78,17 +81,26 @@ INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 31 'offset' '' '' 28 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-34 'vector' '' '' 33 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+34 'output' '' '' 33 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+35 'n' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+36 'centre' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+37 'standard_deviation' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 DUMMY) (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+40 'vector' '' '' 39 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0 ASSUMED_SHAPE
 (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () () () 0 0)
-35 'vectorsize' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+41 'vectorsize' '' '' 39 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-36 'offset' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+42 'offset' '' '' 39 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-39 'rate' '' '' 38 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+45 'rate' '' '' 44 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 )
 
 ('bubble_sort' 0 2 'ftom' 0 5 'init_random_seed' 0 8 'lcase' 0 9 'ltom'
 0 12 'mtof' 0 15 'mtol' 0 18 'percentage' 0 21 'random_int' 0 27
-'serialize' 0 32 'sleep_ms' 0 37 'usefullibrary' 0 40)
+'random_int_gaussian' 0 32 'serialize' 0 38 'sleep_ms' 0 43
+'usefullibrary' 0 46)
