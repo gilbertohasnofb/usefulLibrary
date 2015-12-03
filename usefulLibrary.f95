@@ -5,8 +5,6 @@
 !                                                                                                                                                            !
 !                                                     by Gilberto Agostinho (gilbertohasnofb@gmail.com)                                                      !
 !                                                                                                                                                            !
-!                                                          (current version created on 24/11/2015)                                                           !
-!                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** !
 !                                                                                                                                                            !
 ! List of all subroutines and functions included in this library:                                                                                            !
@@ -341,7 +339,7 @@ contains
   
   integer, intent(OUT) :: output
   integer, intent(IN) :: N, centre
-  integer, intent(IN), optional :: offset
+  integer, intent(IN), optional :: offset ! default = 0
   real, intent(IN) :: standard_deviation ! values in the range centre +- standard_deviation will have 68% of chance of being choosen, while values in the range centre +- 2*standard_deviation have 95% of chance
   real :: gauss, gauss_sum, x, normalization_factor
   integer :: i, offset_aux
@@ -350,7 +348,7 @@ contains
   if (present(offset)) offset_aux = offset
   
   normalization_factor = 0.0
-  do i=1,N
+  do i=0,(N-1)
     gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) )
     normalization_factor = normalization_factor + gauss
   enddo
@@ -358,7 +356,7 @@ contains
   call RANDOM_NUMBER(x) ! random number satisfying 0 <= x < 1
   
   gauss_sum = 0.0
-  do i=1,N
+  do i=0,(N-1)
     gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
     gauss_sum = gauss_sum + gauss
     if (x < gauss_sum) then
