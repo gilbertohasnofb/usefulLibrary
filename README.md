@@ -17,3 +17,4 @@ List of available subroutines
 - FtoM (frequency to MIDI)
 - MtoL (MIDI to LilyPond)
 - LtoM (LilyPond to MIDI)
+- RANDOM_INT_GAUSSIAN
