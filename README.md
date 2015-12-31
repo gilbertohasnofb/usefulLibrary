@@ -18,3 +18,4 @@ List of available subroutines
 - MtoL (MIDI to LilyPond)
 - LtoM (LilyPond to MIDI)
 - RANDOM_INT_GAUSSIAN
+- FACTORIAL

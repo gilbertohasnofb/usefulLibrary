@@ -21,6 +21,7 @@
 ! MtoL(integer)                                                                                                                                              !
 ! LtoM(character)                                                                                                                                            !
 ! RANDOM_INT_GAUSSIAN(integer,integer,integer,real)                                                                                                          !
+! FACTORIAL(integer)                                                                                                                                         !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -204,11 +205,12 @@ contains
 
   ! function MIDI -> frequency
   function MtoF(MIDI)
-  real :: MtoF
-  integer :: MIDI, MIDIinterval
   
-  MIDIinterval =  MIDI - 69 ! since A4 is reference
-  MtoF = 440 * 2**(real(MIDIinterval) / 12)
+    real :: MtoF
+    integer :: MIDI, MIDIinterval
+    
+    MIDIinterval =  MIDI - 69 ! since A4 is reference
+    MtoF = 440 * 2**(real(MIDIinterval) / 12)
   
   end function MtoF
 
@@ -216,12 +218,13 @@ contains
 
   ! function frequency -> MIDI
   function FtoM(freq)
-  real :: FtoM
-  real :: freq, freqInterval
   
-  freqInterval = freq / 440. ! A4 is reference      
-  
-  FtoM = 12 * ( log(freqInterval) / log(2.)) + 69
+    real :: FtoM
+    real :: freq, freqInterval
+    
+    freqInterval = freq / 440. ! A4 is reference      
+    
+    FtoM = 12 * ( log(freqInterval) / log(2.)) + 69
   
   end function FtoM
   
@@ -230,66 +233,66 @@ contains
   ! MIDI number into LilyPond notation 
   function MtoL(pitchM)
 
-  integer :: pitchM ! pitch in MIDI notation
-  character (LEN=9) :: MtoL ! pitch in LilyPond notation
-  integer :: octave, pitchM_AUX
-  
-  octave = 0
-  pitchM_AUX = pitchM
-  do while (pitchM_AUX >= 12)
-    pitchM_AUX = pitchM_AUX - 12
-    octave = octave + 1
-  enddo
+    integer :: pitchM ! pitch in MIDI notation
+    character (LEN=9) :: MtoL ! pitch in LilyPond notation
+    integer :: octave, pitchM_AUX
+    
+    octave = 0
+    pitchM_AUX = pitchM
+    do while (pitchM_AUX >= 12)
+      pitchM_AUX = pitchM_AUX - 12
+      octave = octave + 1
+    enddo
 
-  select case (pitchM_AUX)
-    case (0)
-      MtoL = "c"
-    case (1)
-      MtoL = "cis"
-    case (2)
-      MtoL = "d"
-    case (3)
-      MtoL = "dis"
-    case (4)
-      MtoL  = "e"
-    case (5)
-      MtoL = "f"
-    case (6)
-      MtoL = "fis"
-    case (7)
-      MtoL = "g"
-    case (8)
-      MtoL = "aes"
-    case (9)
-      MtoL = "a"
-    case (10)
-      MtoL = "bes"
-    case (11)
-      MtoL = "b"
-  end select
-  
-  select case (octave)
-    case(-1)
-      MtoL = TRIM(MtoL)//",,,,,"
-    case(0)
-      MtoL = TRIM(MtoL)//",,,,"
-    case(1)
-      MtoL = TRIM(MtoL)//",,,"
-    case(2)
-      MtoL = TRIM(MtoL)//",,"
-    case(3)
-      MtoL = TRIM(MtoL)//","
-    case(5)
-      MtoL = TRIM(MtoL)//"'"
-    case(6)
-      MtoL = TRIM(MtoL)//"''"
-    case(7)
-      MtoL = TRIM(MtoL)//"'''"
-    case(8)
-      MtoL = TRIM(MtoL)//"''''"
-    case(9)
-      MtoL = TRIM(MtoL)//"'''''"
-  end select
+    select case (pitchM_AUX)
+      case (0)
+        MtoL = "c"
+      case (1)
+        MtoL = "cis"
+      case (2)
+        MtoL = "d"
+      case (3)
+        MtoL = "dis"
+      case (4)
+        MtoL  = "e"
+      case (5)
+        MtoL = "f"
+      case (6)
+        MtoL = "fis"
+      case (7)
+        MtoL = "g"
+      case (8)
+        MtoL = "aes"
+      case (9)
+        MtoL = "a"
+      case (10)
+        MtoL = "bes"
+      case (11)
+        MtoL = "b"
+    end select
+    
+    select case (octave)
+      case(-1)
+        MtoL = TRIM(MtoL)//",,,,,"
+      case(0)
+        MtoL = TRIM(MtoL)//",,,,"
+      case(1)
+        MtoL = TRIM(MtoL)//",,,"
+      case(2)
+        MtoL = TRIM(MtoL)//",,"
+      case(3)
+        MtoL = TRIM(MtoL)//","
+      case(5)
+        MtoL = TRIM(MtoL)//"'"
+      case(6)
+        MtoL = TRIM(MtoL)//"''"
+      case(7)
+        MtoL = TRIM(MtoL)//"'''"
+      case(8)
+        MtoL = TRIM(MtoL)//"''''"
+      case(9)
+        MtoL = TRIM(MtoL)//"'''''"
+    end select
 
   end function MtoL
 
@@ -298,37 +301,37 @@ contains
   ! Lilypond notation into MIDI number
   function LtoM(pitchL)
 
-  character (LEN=*) :: pitchL ! pitch in LilyPond notation
-  integer :: LtoM ! pitch in MIDI notation
-  integer :: octave, i
+    character (LEN=*) :: pitchL ! pitch in LilyPond notation
+    integer :: LtoM ! pitch in MIDI notation
+    integer :: octave, i
 
-  octave = 4 ! since the notes c d e ... b in Lilypond are = to 48 + pitch_class in MIDI
-  do i=1,LEN(pitchL)
-    if (pitchL(i:i) == "'") octave = octave + 1
-    if (pitchL(i:i) == ",") octave = octave - 1
-  enddo
+    octave = 4 ! since the notes c d e ... b in Lilypond are = to 48 + pitch_class in MIDI
+    do i=1,LEN(pitchL)
+      if (pitchL(i:i) == "'") octave = octave + 1
+      if (pitchL(i:i) == ",") octave = octave - 1
+    enddo
 
-  select case (pitchL(1:1))
-    case ("c")
-      LtoM = 0
-    case ("d")
-      LtoM = 2
-    case ("e")
-      LtoM = 4
-    case ("f")
-      LtoM = 5
-    case ("g")
-      LtoM = 7
-    case ("a")
-      LtoM = 9
-    case ("b")
-      LtoM = 11
-    case default
-  end select
+    select case (pitchL(1:1))
+      case ("c")
+        LtoM = 0
+      case ("d")
+        LtoM = 2
+      case ("e")
+        LtoM = 4
+      case ("f")
+        LtoM = 5
+      case ("g")
+        LtoM = 7
+      case ("a")
+        LtoM = 9
+      case ("b")
+        LtoM = 11
+      case default
+    end select
 
-  if (pitchL(2:3)=="is") LtoM = LtoM + 1
-  if (pitchL(2:3)=="es") LtoM = LtoM - 1
-  LtoM = LtoM + 12 * octave
+    if (pitchL(2:3)=="is") LtoM = LtoM + 1
+    if (pitchL(2:3)=="es") LtoM = LtoM - 1
+    LtoM = LtoM + 12 * octave
 
   end function LtoM
 
@@ -337,35 +340,51 @@ contains
   ! generates a random integer using a discrete gaussian distribution
   subroutine RANDOM_INT_GAUSSIAN(output,N,centre,standard_deviation,offset)
   
-  integer, intent(OUT) :: output
-  integer, intent(IN) :: N, centre
-  integer, intent(IN), optional :: offset ! default = 0
-  real, intent(IN) :: standard_deviation ! values in the range centre +- standard_deviation will have 68% of chance of being choosen, while values in the range centre +- 2*standard_deviation have 95% of chance
-  real :: gauss, gauss_sum, x, normalization_factor
-  integer :: i, offset_aux
-  
-  offset_aux = 0
-  if (present(offset)) offset_aux = offset
-  
-  normalization_factor = 0.0
-  do i=0,(N-1)
-    gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) )
-    normalization_factor = normalization_factor + gauss
-  enddo
-  
-  call RANDOM_NUMBER(x) ! random number satisfying 0 <= x < 1
-  
-  gauss_sum = 0.0
-  do i=0,(N-1)
-    gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
-    gauss_sum = gauss_sum + gauss
-    if (x < gauss_sum) then
-      output = i + offset_aux
-      exit
-    endif
-  enddo
+    integer, intent(OUT) :: output
+    integer, intent(IN) :: N, centre
+    integer, intent(IN), optional :: offset ! default = 0
+    real, intent(IN) :: standard_deviation ! values in the range centre +- standard_deviation will have 68% of chance of being choosen, while values in the range centre +- 2*standard_deviation have 95% of chance
+    real :: gauss, gauss_sum, x, normalization_factor
+    integer :: i, offset_aux
+    
+    offset_aux = 0
+    if (present(offset)) offset_aux = offset
+    
+    normalization_factor = 0.0
+    do i=0,(N-1)
+      gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) )
+      normalization_factor = normalization_factor + gauss
+    enddo
+    
+    call RANDOM_NUMBER(x) ! random number satisfying 0 <= x < 1
+    
+    gauss_sum = 0.0
+    do i=0,(N-1)
+      gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
+      gauss_sum = gauss_sum + gauss
+      if (x < gauss_sum) then
+        output = i + offset_aux
+        exit
+      endif
+    enddo
 
   end subroutine RANDOM_INT_GAUSSIAN
+
+! **********************************************************************************************************************************************************
+
+  ! factorial function
+  function FACTORIAL(n)
+  
+    integer :: FACTORIAL, n
+    integer :: i
+    
+    FACTORIAL = 1
+    
+    do i=n,1,-1
+      FACTORIAL = FACTORIAL * i
+    enddo
+  
+  end function FACTORIAL
 
 ! **********************************************************************************************************************************************************
 
