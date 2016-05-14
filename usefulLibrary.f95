@@ -20,8 +20,9 @@
 ! FtoM(real)                                                                                                                                                 !
 ! MtoL(integer)                                                                                                                                              !
 ! LtoM(character)                                                                                                                                            !
-! RANDOM_INT_GAUSSIAN(integer,integer,integer,real)                                                                                                          !
+! RANDOM_INT_GAUSSIAN(integer,integer,integer,real,integer)                                                                                                  !
 ! FACTORIAL(integer)                                                                                                                                         !
+! QUICKSORT(integer,integer,integer)                                                                                                                                         !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -44,7 +45,7 @@ contains
     call RANDOM_SEED(size=N)
     allocate(seed(N))
 
-    seed=x+37*(/ (i - 1, i = 1, n) /)
+    seed = x + 37 * (/ (i - 1, i = 1, N) /)
 
     call RANDOM_SEED(put=seed)
 
@@ -385,6 +386,42 @@ contains
     enddo
   
   end function FACTORIAL
+
+! **********************************************************************************************************************************************************
+
+  ! Bubble Sort algorithm
+  ! Adapted from https://gist.github.com/t-nissie/479f0f16966925fa29ea
+
+  recursive subroutine QUICKSORT(vector, first_index, last_index)
+
+    integer, intent(INOUT), dimension(:) :: vector
+    integer, intent(IN) :: first_index, last_index
+    integer :: pivot, temp
+    integer :: i, j
+
+    pivot = vector((first_index + last_index) / 2)
+    i = first_index
+    j = last_index
+    
+    do
+      do while (vector(i) < pivot)
+        i = i + 1
+      end do
+      do while (pivot < vector(j))
+        j = j - 1
+      end do
+      if (i >= j) exit
+      temp = vector(i)
+      vector(i) = vector(j)
+      vector(j) = temp
+      i = i + 1
+      j = j - 1
+    enddo
+    
+    if (first_index < (i - 1)) call QUICKSORT(vector, first_index, (i - 1))
+    if ((j + 1) < last_index)  call QUICKSORT(vector, (j + 1), last_index)
+    
+  end subroutine QUICKSORT
 
 ! **********************************************************************************************************************************************************
 
