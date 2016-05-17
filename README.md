@@ -19,3 +19,4 @@ List of available subroutines
 - LtoM (LilyPond to MIDI)
 - RANDOM_INT_GAUSSIAN
 - FACTORIAL
+- QUICKSORT
