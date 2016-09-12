@@ -22,7 +22,8 @@
 ! LtoM(character)                                                                                                                                            !
 ! RANDOM_INT_GAUSSIAN(integer,integer,integer,real,integer)                                                                                                  !
 ! FACTORIAL(integer)                                                                                                                                         !
-! QUICKSORT(integer,integer,integer)                                                                                                                                         !
+! QUICKSORT(integer,integer,integer)                                                                                                                         !
+! NDIGITS(integer)                                                                                                                                           !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -205,10 +206,10 @@ contains
 ! **********************************************************************************************************************************************************
 
   ! function MIDI -> frequency
-  function MtoF(MIDI)
+  real function MtoF(MIDI)
   
-    real :: MtoF
-    integer :: MIDI, MIDIinterval
+    integer, intent(IN) :: MIDI
+    integer :: MIDIinterval
     
     MIDIinterval =  MIDI - 69 ! since A4 is reference
     MtoF = 440 * 2**(real(MIDIinterval) / 12)
@@ -218,10 +219,10 @@ contains
 ! **********************************************************************************************************************************************************
 
   ! function frequency -> MIDI
-  function FtoM(freq)
+  real function FtoM(freq)
   
-    real :: FtoM
-    real :: freq, freqInterval
+    real, intent(IN) :: freq
+    real :: freqInterval
     
     freqInterval = freq / 440. ! A4 is reference      
     
@@ -232,10 +233,9 @@ contains
 ! **********************************************************************************************************************************************************
 
   ! MIDI number into LilyPond notation 
-  function MtoL(pitchM)
+  character (LEN=9) function MtoL(pitchM)
 
-    integer :: pitchM ! pitch in MIDI notation
-    character (LEN=9) :: MtoL ! pitch in LilyPond notation
+    integer, intent(IN) :: pitchM ! pitch in MIDI notation
     integer :: octave, pitchM_AUX
     
     octave = 0
@@ -300,10 +300,9 @@ contains
 ! **********************************************************************************************************************************************************
 
   ! Lilypond notation into MIDI number
-  function LtoM(pitchL)
+  integer function LtoM(pitchL)
 
-    character (LEN=*) :: pitchL ! pitch in LilyPond notation
-    integer :: LtoM ! pitch in MIDI notation
+    character (LEN=*), intent(IN) :: pitchL ! pitch in LilyPond notation
     integer :: octave, i
 
     octave = 4 ! since the notes c d e ... b in Lilypond are = to 48 + pitch_class in MIDI
@@ -374,9 +373,9 @@ contains
 ! **********************************************************************************************************************************************************
 
   ! factorial function
-  function FACTORIAL(n)
+  integer function FACTORIAL(n)
   
-    integer :: FACTORIAL, n
+    integer, intent(IN) :: n
     integer :: i
     
     FACTORIAL = 1
@@ -422,6 +421,27 @@ contains
     if ((j + 1) < last_index)  call QUICKSORT(vector, (j + 1), last_index)
     
   end subroutine QUICKSORT
+
+! **********************************************************************************************************************************************************
+
+  ! returns the number of digits of an input integer
+  integer function NDIGITS(input)
+  
+    integer, intent(IN) :: input
+    integer :: aux
+    
+    aux = ABS(input)
+    
+    NDIGITS = 1
+    
+    do while (aux > 9)
+    
+      aux = aux / 10
+      NDIGITS = NDIGITS + 1
+      
+    enddo
+    
+  end function NDIGITS
 
 ! **********************************************************************************************************************************************************
 
