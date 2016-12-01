@@ -21,3 +21,4 @@ List of available subroutines and functions
 - FACTORIAL
 - QUICKSORT
 - NDIGITS
+- EXTRACT_DIGITS

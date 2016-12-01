@@ -24,6 +24,7 @@
 ! FACTORIAL(integer)                                                                                                                                         !
 ! QUICKSORT(integer,integer,integer)                                                                                                                         !
 ! NDIGITS(integer)                                                                                                                                           !
+! EXTRACT_DIGITS(integer,integer)                                                                                                                            !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -444,5 +445,22 @@ contains
   end function NDIGITS
 
 ! **********************************************************************************************************************************************************
+
+  subroutine EXTRACT_DIGITS(input,output_vector)
+  
+    integer, intent(IN) :: input
+    integer, dimension(:), intent(OUT) :: output_vector
+    integer :: i, aux, num_digits
+  
+    output_vector = 0
+    num_digits = NDIGITS(input)
+    
+    aux = input
+    do i = 1,num_digits
+      output_vector(i) = aux - (aux/10)*10
+      aux = aux / 10
+    enddo
+    
+  end subroutine EXTRACT_DIGITS
 
 end module usefulLibrary
