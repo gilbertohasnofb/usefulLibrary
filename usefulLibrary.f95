@@ -454,5 +454,18 @@ contains
     enddo
     
   end subroutine EXTRACT_DIGITS
+  
+! **********************************************************************************************************************************************************
+
+  integer function EXTRACT_SINGLE_DIGIT(input,pos)
+  
+    integer, intent(IN) :: input, pos
+    integer :: aux
+ 
+    aux = input    
+    aux = aux / (10 ** (pos - 1))
+    EXTRACT_SINGLE_DIGIT = aux - (aux/10)*10
+        
+  end function EXTRACT_SINGLE_DIGIT
 
 end module usefulLibrary

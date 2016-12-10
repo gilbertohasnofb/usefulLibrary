@@ -1,5 +1,5 @@
-GFORTRAN module version '10' created from /home/gilberto/Programming/Fortran/===My Libraries===/usefulLibrary/test.f95
-MD5:7e1ba5b5ffc767bc201bd2bd33288c21 -- If you edit this, you'll get what you deserve.
+GFORTRAN module version '10' created from /home/gilberto/Programming/Fortran/===My Libraries===/usefulLibrary/usefulLibrary.f95
+MD5:c8495f295f593e6aa7c04cccfbffcec0 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -20,50 +20,53 @@ UNKNOWN 0 0 0 0 UNKNOWN ()) 3 0 (4) () 0 () () () 0 0)
 5 'extract_digits' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
 0 UNKNOWN ()) 6 0 (7 8) () 0 () () () 0 0)
-9 'factorial' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+9 'extract_single_digit' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (INTEGER 4 0 0 0
-INTEGER ()) 10 0 (11) () 9 () () () 0 0)
-12 'ftom' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
-DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (REAL 4 0 0 0 REAL ()) 13 0 (
-14) () 12 () () () 0 0)
-15 'init_random_seed' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+INTEGER ()) 10 0 (11 12) () 9 () () () 0 0)
+13 'factorial' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (INTEGER 4 0 0 0
+INTEGER ()) 14 0 (15) () 13 () () () 0 0)
+16 'ftom' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (REAL 4 0 0 0 REAL ()) 17 0 (
+18) () 16 () () () 0 0)
+19 'init_random_seed' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0
 0 () () 0 () () () 0 0)
-16 'lcase' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+20 'lcase' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
 DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (UNKNOWN 0 0 0 0 UNKNOWN ())
-17 0 (18) () 0 () () () 0 0)
-19 'ltom' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
-DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (INTEGER 4 0 0 0 INTEGER ()) 20
-0 (21) () 19 () () () 0 0)
-22 'mtof' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
-DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (REAL 4 0 0 0 REAL ()) 23 0 (
-24) () 22 () () () 0 0)
-25 'mtol' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+21 0 (22) () 0 () () () 0 0)
+23 'ltom' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (INTEGER 4 0 0 0 INTEGER ()) 24
+0 (25) () 23 () () () 0 0)
+26 'mtof' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (REAL 4 0 0 0 REAL ()) 27 0 (
+28) () 26 () () () 0 0)
+29 'mtol' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
 DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (CHARACTER 1 0 0 0 CHARACTER (
-(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '9'))) 26 0 (27) () 25 () () ()
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '9'))) 30 0 (31) () 29 () () ()
 0 0)
-28 'ndigits' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
-DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (INTEGER 4 0 0 0 INTEGER ()) 29
-0 (30) () 28 () () () 0 0)
-31 'percentage' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+32 'ndigits' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (INTEGER 4 0 0 0 INTEGER ()) 33
+0 (34) () 32 () () () 0 0)
+35 'percentage' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE ALWAYS_EXPLICIT) (
-UNKNOWN 0 0 0 0 UNKNOWN ()) 32 0 (33 34 35 36) () 0 () () () 0 0)
-37 'quicksort' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN 0 0 0 0 UNKNOWN ()) 36 0 (37 38 39 40) () 0 () () () 0 0)
+41 'quicksort' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE RECURSIVE ALWAYS_EXPLICIT) (
-UNKNOWN 0 0 0 0 UNKNOWN ()) 38 0 (39 40 41) () 0 () () () 0 0)
-42 'random_int' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+UNKNOWN 0 0 0 0 UNKNOWN ()) 42 0 (43 44 45) () 0 () () () 0 0)
+46 'random_int' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
-0 UNKNOWN ()) 43 0 (44 45 46) () 0 () () () 0 0)
-47 'random_int_gaussian' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+0 UNKNOWN ()) 47 0 (48 49 50) () 0 () () () 0 0)
+51 'random_int_gaussian' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
-0 UNKNOWN ()) 48 0 (49 50 51 52 53) () 0 () () () 0 0)
-54 'serialize' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+0 UNKNOWN ()) 52 0 (53 54 55 56 57) () 0 () () () 0 0)
+58 'serialize' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
-0 UNKNOWN ()) 55 0 (56 57 58) () 0 () () () 0 0)
-59 'sleep_ms' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
-MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 60
-0 (61) () 0 () () () 0 0)
-62 'usefullibrary' 'usefullibrary' '' 1 ((MODULE UNKNOWN-INTENT
+0 UNKNOWN ()) 59 0 (60 61 62) () 0 () () () 0 0)
+63 'sleep_ms' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 64
+0 (65) () 0 () () () 0 0)
+66 'usefullibrary' 'usefullibrary' '' 1 ((MODULE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
 0 () () () 0 0)
 4 'a' '' '' 3 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
@@ -75,64 +78,68 @@ DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0 ASSUMED_SHAPE
 0 DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0
 ASSUMED_SHAPE (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () ()
 () 0 0)
-11 'n' '' '' 10 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+11 'input' '' '' 10 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+12 'pos' '' '' 10 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+15 'n' '' '' 14 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
 INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-14 'freq' '' '' 13 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+18 'freq' '' '' 17 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-18 'text_string' '' '' 17 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
+22 'text_string' '' '' 21 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN
 0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
-21 'pitchl' '' '' 20 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+25 'pitchl' '' '' 24 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
-24 'midi' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+28 'midi' '' '' 27 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-27 'pitchm' '' '' 26 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+31 'pitchm' '' '' 30 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-30 'input' '' '' 29 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+34 'input' '' '' 33 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-33 'pct' '' '' 32 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+37 'pct' '' '' 36 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-34 'value' '' '' 32 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+38 'value' '' '' 36 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-35 'max' '' '' 32 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+39 'max' '' '' 36 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-36 'min' '' '' 32 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+40 'min' '' '' 36 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 OPTIONAL DUMMY) (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-39 'vector' '' '' 38 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+43 'vector' '' '' 42 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0 ASSUMED_SHAPE
 (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () () () 0 0)
-40 'first_index' '' '' 38 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+44 'first_index' '' '' 42 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-41 'last_index' '' '' 38 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+45 'last_index' '' '' 42 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-44 'x' '' '' 43 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+48 'x' '' '' 47 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
 INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-45 'n' '' '' 43 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 OPTIONAL
+49 'n' '' '' 47 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 OPTIONAL
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-46 'offset' '' '' 43 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+50 'offset' '' '' 47 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-49 'output' '' '' 48 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+53 'output' '' '' 52 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-50 'n' '' '' 48 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
+54 'n' '' '' 52 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY) (
 INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-51 'centre' '' '' 48 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+55 'centre' '' '' 52 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-52 'standard_deviation' '' '' 48 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
+56 'standard_deviation' '' '' 52 ((VARIABLE IN UNKNOWN-PROC UNKNOWN
 UNKNOWN 0 0 DUMMY) (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
-53 'offset' '' '' 48 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+57 'offset' '' '' 52 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-56 'vector' '' '' 55 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+60 'vector' '' '' 59 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0 ASSUMED_SHAPE
 (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () () () 0 0)
-57 'vectorsize' '' '' 55 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+61 'vectorsize' '' '' 59 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-58 'offset' '' '' 55 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+62 'offset' '' '' 59 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
 OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
-61 'rate' '' '' 60 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+65 'rate' '' '' 64 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 )
 
-('bubble_sort' 0 2 'extract_digits' 0 5 'factorial' 0 9 'ftom' 0 12
-'init_random_seed' 0 15 'lcase' 0 16 'ltom' 0 19 'mtof' 0 22 'mtol' 0 25
-'ndigits' 0 28 'percentage' 0 31 'quicksort' 0 37 'random_int' 0 42
-'random_int_gaussian' 0 47 'serialize' 0 54 'sleep_ms' 0 59
-'usefullibrary' 0 62)
+('bubble_sort' 0 2 'extract_digits' 0 5 'extract_single_digit' 0 9
+'factorial' 0 13 'ftom' 0 16 'init_random_seed' 0 19 'lcase' 0 20 'ltom'
+0 23 'mtof' 0 26 'mtol' 0 29 'ndigits' 0 32 'percentage' 0 35 'quicksort'
+0 41 'random_int' 0 46 'random_int_gaussian' 0 51 'serialize' 0 58
+'sleep_ms' 0 63 'usefullibrary' 0 66)
