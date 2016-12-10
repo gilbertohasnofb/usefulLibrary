@@ -429,18 +429,10 @@ contains
   integer function NDIGITS(input)
   
     integer, intent(IN) :: input
-    integer :: aux
+    real :: aux
     
-    aux = ABS(input)
-    
-    NDIGITS = 1
-    
-    do while (aux > 9)
-    
-      aux = aux / 10
-      NDIGITS = NDIGITS + 1
-      
-    enddo
+    aux = abs(real(input)) ! abs is used so that negative numbers can also be input    
+    NDIGITS = floor(log10(aux)) + 1
     
   end function NDIGITS
 
