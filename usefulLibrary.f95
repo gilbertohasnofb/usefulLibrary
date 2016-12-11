@@ -529,25 +529,19 @@ contains
   
     integer, intent(IN) :: input
     integer, dimension(:), intent(OUT) :: output_vector
-    integer, dimension(:), allocatable :: aux_vector
     integer :: aux
     integer :: counter
     
-    output_vector = 0
-    allocate(aux_vector(SIZE(output_vector)))
+    output_vector = 0    
     aux = input
     counter = 1
     
     do
-      aux_vector(counter) = mod(aux,2)
+      output_vector(counter) = mod(aux,2)
       aux = aux / 2
       counter = counter + 1
       if (aux == 0) exit
-    enddo
-    
-    do counter = 1, SIZE(output_vector)
-      output_vector(counter) = aux_vector(SIZE(output_vector) + 1 - counter)
-    enddo
+    enddo   
   
   end subroutine DEC2BIN
   
