@@ -24,7 +24,11 @@
 ! FACTORIAL(integer)                                                                                                                                         !
 ! QUICKSORT(integer,integer,integer)                                                                                                                         !
 ! NDIGITS(integer)                                                                                                                                           !
+! NDIGITS_16(integer)                                                                                                                                        !
 ! EXTRACT_DIGITS(integer,integer)                                                                                                                            !
+! EXTRACT_DIGITS_16(integer,integer)                                                                                                                         !
+! EXTRACT_SINGLE_DIGIT(integer,integer)                                                                                                                      !
+! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                                                   !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -435,7 +439,20 @@ contains
     NDIGITS = floor(log10(aux)) + 1
     
   end function NDIGITS
+  
+! **********************************************************************************************************************************************************
 
+  ! returns the number of digits of an input integer of kind 16
+  integer function NDIGITS_16(input)
+    
+    integer (kind=16), intent(IN) :: input
+    real :: aux
+    
+    aux = abs(real(input)) ! abs is used so that negative numbers can also be input    
+    NDIGITS_16 = floor(log10(aux)) + 1
+    
+  end function NDIGITS_16
+  
 ! **********************************************************************************************************************************************************
 
   subroutine EXTRACT_DIGITS(input,output_vector)
@@ -457,6 +474,26 @@ contains
   
 ! **********************************************************************************************************************************************************
 
+  subroutine EXTRACT_DIGITS_16(input,output_vector)
+  
+    integer (kind=16), intent(IN) :: input
+    integer, dimension(:), intent(OUT) :: output_vector
+    integer (kind=16) :: aux
+    integer :: i, num_digits
+  
+    output_vector = 0
+    num_digits = NDIGITS_16(input)
+    
+    aux = input
+    do i = 1,num_digits
+      output_vector(i) = aux - (aux/10)*10
+      aux = aux / 10
+    enddo
+    
+  end subroutine EXTRACT_DIGITS_16
+  
+! **********************************************************************************************************************************************************
+
   integer function EXTRACT_SINGLE_DIGIT(input,pos)
   
     integer, intent(IN) :: input, pos
@@ -467,5 +504,21 @@ contains
     EXTRACT_SINGLE_DIGIT = aux - (aux/10)*10
         
   end function EXTRACT_SINGLE_DIGIT
+  
+! **********************************************************************************************************************************************************
+  
+  integer function EXTRACT_SINGLE_DIGIT_16(input,pos)
+  
+    integer (kind=16), intent(IN) :: input
+    integer, intent(IN) :: pos
+    integer (kind=16) :: aux
+ 
+    aux = input
+    aux = aux / (10_16 ** (pos - 1))
+    EXTRACT_SINGLE_DIGIT_16 = aux - (aux / 10) * 10
+        
+  end function EXTRACT_SINGLE_DIGIT_16
+  
+! **********************************************************************************************************************************************************
 
 end module usefulLibrary
