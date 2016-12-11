@@ -29,6 +29,8 @@
 ! EXTRACT_DIGITS_16(integer,integer)                                                                                                                         !
 ! EXTRACT_SINGLE_DIGIT(integer,integer)                                                                                                                      !
 ! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                                                   !
+! DEC2BIN(integer)                                                                                                                                           !
+! DEC2BIN_16(integer)                                                                                                                                        !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -518,6 +520,56 @@ contains
     EXTRACT_SINGLE_DIGIT_16 = aux - (aux / 10) * 10
         
   end function EXTRACT_SINGLE_DIGIT_16
+  
+! **********************************************************************************************************************************************************
+
+
+  subroutine DEC2BIN(input,output_vector)
+  
+    integer, intent(IN) :: input
+    integer, dimension(:), intent(OUT) :: output_vector
+    integer, dimension(:), allocatable :: aux_vector
+    integer :: aux
+    integer :: counter
+    
+    output_vector = 0
+    allocate(aux_vector(SIZE(output_vector)))
+    aux = input
+    counter = 1
+    
+    do
+      aux_vector(counter) = mod(aux,2)
+      aux = aux / 2
+      counter = counter + 1
+      if (aux == 0) exit
+    enddo
+    
+    do counter = 1, SIZE(output_vector)
+      output_vector(counter) = aux_vector(SIZE(output_vector) + 1 - counter)
+    enddo
+  
+  end subroutine DEC2BIN
+  
+! **********************************************************************************************************************************************************
+
+  integer (kind=16) function DEC2BIN_16(input)
+  
+    integer (kind=16), intent(IN) :: input
+    integer (kind=16) :: aux
+    integer :: counter
+    
+    aux = input
+    counter = 0
+    DEC2BIN_16 = 0
+    
+    do
+      DEC2BIN_16 = DEC2BIN_16 + mod(aux,2) * 10_16 ** counter
+      aux = aux / 2      
+      counter = counter + 1
+      if (aux == 0) exit
+    enddo        
+  
+  end function DEC2BIN_16
   
 ! **********************************************************************************************************************************************************
 
