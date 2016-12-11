@@ -31,6 +31,7 @@
 ! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                                                   !
 ! DEC2BIN(integer)                                                                                                                                           !
 ! DEC2BIN_16(integer)                                                                                                                                        !
+! NDIGITSBIN(integer)                                                                                                                                        !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -523,7 +524,7 @@ contains
   
 ! **********************************************************************************************************************************************************
 
-
+  ! converts decimal to binary, output is a vector. Best to use together with NDIGITSBIN as to allocate the output_vector the correct size, avoiding trailing zeroes
   subroutine DEC2BIN(input,output_vector)
   
     integer, intent(IN) :: input
@@ -570,6 +571,25 @@ contains
     enddo        
   
   end function DEC2BIN_16
+  
+! **********************************************************************************************************************************************************
+
+  ! returns the number of digits of a decimal input integer as if it was a binary number (e.g. 16 returns 5, since 16 = 10000 in binary, which has 5 digits)
+  integer function NDIGITSBIN(input)
+  
+    integer, intent(IN) :: input
+    integer :: aux
+    
+    aux = input
+    NDIGITSBIN = 0
+    
+    do
+      aux = aux / 2      
+      NDIGITSBIN = NDIGITSBIN + 1
+      if (aux == 0) exit
+    enddo     
+    
+  end function NDIGITSBIN
   
 ! **********************************************************************************************************************************************************
 
