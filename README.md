@@ -29,3 +29,4 @@ List of available subroutines and functions
 - DEC2BIN
 - DEC2BIN_16
 - NDIGITSBIN
+- RETROGRADE_VECTOR

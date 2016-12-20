@@ -32,6 +32,7 @@
 ! DEC2BIN(integer)                                                                                                                                           !
 ! DEC2BIN_16(integer)                                                                                                                                        !
 ! NDIGITSBIN(integer)                                                                                                                                        !
+! RETROGRADE_VECTOR(integer)                                                                                                                                        !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -584,6 +585,24 @@ contains
     enddo     
     
   end function NDIGITSBIN
+
+! **********************************************************************************************************************************************************
+  
+  subroutine RETROGRADE_VECTOR(vector)
+  
+    integer, dimension(:), intent(INOUT) :: vector
+    integer, dimension(:), allocatable :: vector_aux
+    integer :: i
+    
+    allocate(vector_aux(SIZE(vector)))
+
+    vector_aux = vector
+    
+    do i = 1, SIZE(vector)
+      vector(i) = vector_aux(SIZE(vector) + 1 - i)
+    enddo
+  
+  end subroutine RETROGRADE_VECTOR
   
 ! **********************************************************************************************************************************************************
 
