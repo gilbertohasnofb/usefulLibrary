@@ -1,5 +1,5 @@
 GFORTRAN module version '10' created from usefulLibrary.f95
-MD5:4072bbf7c0de032d1eaeb05a4f869ff0 -- If you edit this, you'll get what you deserve.
+MD5:d4e9d3b1a9e5d65ac14a4132dd583fe7 -- If you edit this, you'll get what you deserve.
 
 (() () () () () () () () () () () () () () () () () () () () () () () ()
 () () ())
@@ -87,7 +87,10 @@ MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE ALWAYS_EXPLICIT) (UNKNOWN 0 0 0
 87 'sleep_ms' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
 MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 88
 0 (89) () 0 () () () 0 0)
-90 'usefullibrary' 'usefullibrary' '' 1 ((MODULE UNKNOWN-INTENT
+90 'unique_elements' 'usefullibrary' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE ALWAYS_EXPLICIT) (
+LOGICAL 4 0 0 0 LOGICAL ()) 91 0 (92) () 90 () () () 0 0)
+93 'usefullibrary' 'usefullibrary' '' 1 ((MODULE UNKNOWN-INTENT
 UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
 0 () () () 0 0)
 4 'a' '' '' 3 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
@@ -182,6 +185,9 @@ DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 89 'rate' '' '' 88 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
 (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+92 'vector' '' '' 91 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DIMENSION DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () (1 0 ASSUMED_SHAPE
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') ()) 0 () () () 0 0)
 )
 
 ('bubble_sort' 0 2 'dec2bin' 0 5 'dec2bin_16' 0 9 'extract_digits' 0 12
@@ -190,5 +196,5 @@ OPTIONAL DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
 'init_random_seed' 0 34 'lcase' 0 35 'ltom' 0 38 'mtof' 0 41 'mtol' 0 44
 'ndigits' 0 47 'ndigits_16' 0 50 'ndigitsbin' 0 53 'percentage' 0 56
 'quicksort' 0 62 'random_int' 0 67 'random_int_gaussian' 0 72
-'retrograde_vector' 0 79 'serialize' 0 82 'sleep_ms' 0 87 'usefullibrary'
-0 90)
+'retrograde_vector' 0 79 'serialize' 0 82 'sleep_ms' 0 87
+'unique_elements' 0 90 'usefullibrary' 0 93)

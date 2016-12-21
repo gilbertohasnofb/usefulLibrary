@@ -32,7 +32,8 @@
 ! DEC2BIN(integer)                                                                                                                                           !
 ! DEC2BIN_16(integer)                                                                                                                                        !
 ! NDIGITSBIN(integer)                                                                                                                                        !
-! RETROGRADE_VECTOR(integer)                                                                                                                                        !
+! RETROGRADE_VECTOR(integer)                                                                                                                                 !
+! UNIQUE_ELEMENTS(integer)                                                                                                                                   !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -603,6 +604,28 @@ contains
     enddo
   
   end subroutine RETROGRADE_VECTOR
+  
+! **********************************************************************************************************************************************************
+  
+  logical function UNIQUE_ELEMENTS(vector)
+  
+    integer, dimension(:), intent(IN) :: vector
+    integer :: i, j
+    
+    UNIQUE_ELEMENTS = .TRUE.
+    
+    do i = 1, SIZE(vector)
+      do j = i + 1, SIZE(vector)
+        if (vector(i) == vector(j)) then
+          UNIQUE_ELEMENTS = .FALSE.
+          goto 10
+        endif
+      enddo
+    enddo
+    
+    10 return
+  
+  end function UNIQUE_ELEMENTS
   
 ! **********************************************************************************************************************************************************
 

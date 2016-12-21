@@ -30,3 +30,4 @@ List of available subroutines and functions
 - DEC2BIN_16
 - NDIGITSBIN
 - RETROGRADE_VECTOR
+- UNIQUE_ELEMENTS
