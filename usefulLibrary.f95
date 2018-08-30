@@ -10,6 +10,7 @@
 ! List of all subroutines and functions included in this library:                                                                                            !
 !                                                                                                                                                            !
 ! INIT_RANDOM_SEED()                                                                                                                                         !                                  
+! INIT_FIXED_SEED(INTEGER)                                                                                                                                   |
 ! RANDOM_INT(integer,integer,integer)                                                                                                                        !                                         
 ! LCASE(character)                                                                                                                                           !                                 
 ! BUBBLE_SORT(integer)                                                                                                                                       !                                   
@@ -34,7 +35,6 @@
 ! NDIGITSBIN(integer)                                                                                                                                        !
 ! RETROGRADE_VECTOR(integer)                                                                                                                                 !
 ! UNIQUE_ELEMENTS(integer)                                                                                                                                   !
-! SWAP(integer,integer)                                                                                                                                      !
 !                                                                                                                                                            !
 ! ********************************************************************************************************************************************************** ! 
 
@@ -64,6 +64,24 @@ contains
     deallocate(seed)
 
   end subroutine INIT_RANDOM_SEED
+
+! **********************************************************************************************************************************************************
+
+  ! Subroutine INIT_FIXED_SEED: changes the default seed for the PRNG but still assures that RANDOM will output the same numbers on each run
+  subroutine INIT_FIXED_SEED(my_seed_input)
+    integer, intent(IN) :: my_seed_input
+    integer, dimension(:), allocatable :: seed
+    integer :: i, n
+
+    call random_seed(size = n)
+    allocate(seed(n))
+
+    seed = my_seed_input + 37 * (/ (i - 1, i = 1, n) /)
+    call random_seed(put = seed)
+
+    deallocate(seed)
+
+    end subroutine INIT_FIXED_SEED
 
   ! **********************************************************************************************************************************************************
     
@@ -628,18 +646,6 @@ contains
   
   end function UNIQUE_ELEMENTS
   
-! **********************************************************************************************************************************************************
-
-    subroutine SWAP(a, b)
-        integer, intent(INOUT) :: a, b
-        integer :: aux
-
-        aux = a
-        a = b
-        b = aux
-
-    end subroutine SWAP
-    
 ! **********************************************************************************************************************************************************
 
 end module usefulLibrary
