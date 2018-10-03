@@ -1,42 +1,42 @@
-! ********************************************************************************************************************************************************** !
-!                                                                                                                                                            !
-!                                                        Library of Useful Fortran Subroutines v1.0                                                          !
-!                                                                        LINUX VERSION                                                                       !
-!                                                                                                                                                            !
-!                                                     by Gilberto Agostinho (gilbertohasnofb@gmail.com)                                                      !
-!                                                                                                                                                            !
-! ********************************************************************************************************************************************************** !
-!                                                                                                                                                            !
-! List of all subroutines and functions included in this library:                                                                                            !
-!                                                                                                                                                            !
-! INIT_RANDOM_SEED()                                                                                                                                         !                                  
-! INIT_FIXED_SEED(INTEGER)                                                                                                                                   |
-! RANDOM_INT(integer,integer,integer)                                                                                                                        !                                         
-! LCASE(character)                                                                                                                                           !                                 
-! BUBBLE_SORT(integer)                                                                                                                                       !                                   
-! SLEEP_MS(integer)                                                                                                                                          !                                 
-! PERCENTAGE(real,real,real,real)                                                                                                                            !
-! SERIALIZE(integer,integer,integer)                                                                                                                         !                                           
-! MtoF(integer)                                                                                                                                              !
-! FtoM(real)                                                                                                                                                 !
-! MtoL(integer)                                                                                                                                              !
-! LtoM(character)                                                                                                                                            !
-! RANDOM_INT_GAUSSIAN(integer,integer,integer,real,integer)                                                                                                  !
-! FACTORIAL(integer)                                                                                                                                         !
-! QUICKSORT(integer,integer,integer)                                                                                                                         !
-! NDIGITS(integer)                                                                                                                                           !
-! NDIGITS_16(integer)                                                                                                                                        !
-! EXTRACT_DIGITS(integer,integer)                                                                                                                            !
-! EXTRACT_DIGITS_16(integer,integer)                                                                                                                         !
-! EXTRACT_SINGLE_DIGIT(integer,integer)                                                                                                                      !
-! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                                                   !
-! DEC2BIN(integer)                                                                                                                                           !
-! DEC2BIN_16(integer)                                                                                                                                        !
-! NDIGITSBIN(integer)                                                                                                                                        !
-! RETROGRADE_VECTOR(integer)                                                                                                                                 !
-! UNIQUE_ELEMENTS(integer)                                                                                                                                   !
-!                                                                                                                                                            !
-! ********************************************************************************************************************************************************** ! 
+! ************************************************************************************************************************************** !
+!                                                                                                                                        !
+!                                              Library of Useful Fortran Subroutines v1.0                                                !
+!                                                              LINUX VERSION                                                             !
+!                                                                                                                                        !
+!                                           by Gilberto Agostinho (gilbertohasnofb@gmail.com)                                            !
+!                                                                                                                                        !
+! ************************************************************************************************************************************** !
+!                                                                                                                                        !
+! List of all subroutines and functions included in this library:                                                                        !
+!                                                                                                                                        !
+! INIT_RANDOM_SEED()                                                                                                                     !
+! INIT_FIXED_SEED(INTEGER)                                                                                                               !
+! RANDOM_INT(integer,integer,integer)                                                                                                    !
+! LCASE(character)                                                                                                                       !
+! BUBBLE_SORT(integer)                                                                                                                   !
+! SLEEP_MS(integer)                                                                                                                      !
+! PERCENTAGE(real,real,real,real)                                                                                                        !
+! SERIALIZE(integer,integer,integer)                                                                                                     !
+! MtoF(integer)                                                                                                                          !
+! FtoM(real)                                                                                                                             !
+! MtoL(integer)                                                                                                                          !
+! LtoM(character)                                                                                                                        !
+! RANDOM_INT_GAUSSIAN(integer,integer,integer,real,integer)                                                                              !
+! FACTORIAL(integer)                                                                                                                     !
+! QUICKSORT(integer,integer,integer)                                                                                                     !
+! NDIGITS(integer)                                                                                                                       !
+! NDIGITS_16(integer)                                                                                                                    !
+! EXTRACT_DIGITS(integer,integer)                                                                                                        !
+! EXTRACT_DIGITS_16(integer,integer)                                                                                                     !
+! EXTRACT_SINGLE_DIGIT(integer,integer)                                                                                                  !
+! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                               !
+! DEC2BIN(integer)                                                                                                                       !
+! DEC2BIN_16(integer)                                                                                                                    !
+! NDIGITSBIN(integer)                                                                                                                    !
+! RETROGRADE_VECTOR(integer)                                                                                                             !
+! UNIQUE_ELEMENTS(integer)                                                                                                               !
+!                                                                                                                                        !
+! ************************************************************************************************************************************** !
 
 module usefulLibrary
 implicit none
@@ -84,7 +84,7 @@ contains
     end subroutine INIT_FIXED_SEED
 
   ! **********************************************************************************************************************************************************
-    
+
   ! Subroutine RANDOM INTEGER
   subroutine RANDOM_INT(x,N,offset) ! i.e., if offset=0: generates an integer x between 0 and (N-1). If offset=/=0: generates an integer x between (offset) and ((N-1)+offset). There are always N possibilities.
 
@@ -101,22 +101,22 @@ contains
     if (present(offset)) offset_AUX=offset
 
     call RANDOM_NUMBER(random_AUX)
-    x=floor(random_AUX*N_AUX) + offset_AUX ! i.e., random 3 = 1, 2 or 3      
+    x=floor(random_AUX*N_AUX) + offset_AUX ! i.e., random 3 = 1, 2 or 3
 
   end subroutine RANDOM_INT
 
   ! **********************************************************************************************************************************************************
 
   ! Converts any word into lower case
-  subroutine LCASE(text_string) 
+  subroutine LCASE(text_string)
 
     character (LEN=*) , intent(INOUT) :: text_string
     integer :: i, N, check
 
-    N = LEN(text_string) 
+    N = LEN(text_string)
 
     do i=1,N
-      check = ICHAR(text_string(i:i)) 
+      check = ICHAR(text_string(i:i))
       if (check >= 65 .AND. check < 90) then
         text_string(i:i) = CHAR(check+32)
       endif
@@ -212,23 +212,23 @@ contains
       condition = .TRUE.
 
       do while (condition)
-  
+
         call RANDOM_INT(vector(i),vectorSize,offset_AUX)
-    
-        if (i==1) then      
+
+        if (i==1) then
           condition = .FALSE. ! for first number, there is no repetition, so condition (which controls the do whole loop) is set to false
-          else        
+          else
             condition = .FALSE. ! here condition is set to false unless the loop below finds a repeated number
-            do j=1,(i-1)          
+            do j=1,(i-1)
               if (vector(i)==vector(j)) then
                 condition = .TRUE.
               endif
-            enddo          
+            enddo
         endif
-        
-      enddo  
-  
-    enddo  
+
+      enddo
+
+    enddo
 
   end subroutine SERIALIZE
 
@@ -236,37 +236,37 @@ contains
 
   ! function MIDI -> frequency
   real function MtoF(MIDI)
-  
+
     integer, intent(IN) :: MIDI
     integer :: MIDIinterval
-    
+
     MIDIinterval =  MIDI - 69 ! since A4 is reference
     MtoF = 440 * 2**(real(MIDIinterval) / 12)
-  
+
   end function MtoF
 
 ! **********************************************************************************************************************************************************
 
   ! function frequency -> MIDI
   real function FtoM(freq)
-  
+
     real, intent(IN) :: freq
     real :: freqInterval
-    
-    freqInterval = freq / 440. ! A4 is reference      
-    
+
+    freqInterval = freq / 440. ! A4 is reference
+
     FtoM = 12 * ( log(freqInterval) / log(2.)) + 69
-  
+
   end function FtoM
-  
+
 ! **********************************************************************************************************************************************************
 
-  ! MIDI number into LilyPond notation 
+  ! MIDI number into LilyPond notation
   character (LEN=9) function MtoL(pitchM)
 
     integer, intent(IN) :: pitchM ! pitch in MIDI notation
     integer :: octave, pitchM_AUX
-    
+
     octave = 0
     pitchM_AUX = pitchM
     do while (pitchM_AUX >= 12)
@@ -300,7 +300,7 @@ contains
       case (11)
         MtoL = "b"
     end select
-    
+
     select case (octave)
       case(-1)
         MtoL = TRIM(MtoL)//",,,,,"
@@ -368,25 +368,25 @@ contains
 
   ! generates a random integer using a discrete gaussian distribution
   subroutine RANDOM_INT_GAUSSIAN(output,N,centre,standard_deviation,offset)
-  
+
     integer, intent(OUT) :: output
     integer, intent(IN) :: N, centre
     integer, intent(IN), optional :: offset ! default = 0
     real, intent(IN) :: standard_deviation ! values in the range centre +- standard_deviation will have 68% of chance of being choosen, while values in the range centre +- 2*standard_deviation have 95% of chance
     real :: gauss, gauss_sum, x, normalization_factor
     integer :: i, offset_aux
-    
+
     offset_aux = 0
     if (present(offset)) offset_aux = offset
-    
+
     normalization_factor = 0.0
     do i=0,(N-1)
       gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) )
       normalization_factor = normalization_factor + gauss
     enddo
-    
+
     call RANDOM_NUMBER(x) ! random number satisfying 0 <= x < 1
-    
+
     gauss_sum = 0.0
     do i=0,(N-1)
       gauss = exp( (real(i + offset_aux) - centre)**2 / (-2 * standard_deviation**2) ) / normalization_factor
@@ -403,16 +403,16 @@ contains
 
   ! factorial function
   integer function FACTORIAL(n)
-  
+
     integer, intent(IN) :: n
     integer :: i
-    
+
     FACTORIAL = 1
-    
+
     do i=n,1,-1
       FACTORIAL = FACTORIAL * i
     enddo
-  
+
   end function FACTORIAL
 
 ! **********************************************************************************************************************************************************
@@ -420,17 +420,30 @@ contains
   ! Bubble Sort algorithm
   ! Adapted from https://gist.github.com/t-nissie/479f0f16966925fa29ea
 
-  recursive subroutine QUICKSORT(vector, first_index, last_index)
+  recursive subroutine QUICKSORT(vector, first_index_arg, last_index_arg)
 
     integer, intent(INOUT), dimension(:) :: vector
-    integer, intent(IN) :: first_index, last_index
+    integer, intent(IN), optional :: first_index_arg, last_index_arg
+    integer :: first_index, last_index
     integer :: pivot, temp
     integer :: i, j
+
+    if (present(first_index_arg)) then
+        first_index = first_index_arg
+    else
+        first_index = 1
+    endif
+
+    if (present(last_index_arg)) then
+        last_index = last_index_arg
+    else
+        last_index = SIZE(vector)
+    endif
 
     pivot = vector((first_index + last_index) / 2)
     i = first_index
     j = last_index
-    
+
     do
       do while (vector(i) < pivot)
         i = i + 1
@@ -445,194 +458,194 @@ contains
       i = i + 1
       j = j - 1
     enddo
-    
+
     if (first_index < (i - 1)) call QUICKSORT(vector, first_index, (i - 1))
     if ((j + 1) < last_index)  call QUICKSORT(vector, (j + 1), last_index)
-    
+
   end subroutine QUICKSORT
 
 ! **********************************************************************************************************************************************************
 
   ! returns the number of digits of an input integer
   integer function NDIGITS(input)
-  
+
     integer, intent(IN) :: input
     real :: aux
-    
-    aux = abs(real(input)) ! abs is used so that negative numbers can also be input    
+
+    aux = abs(real(input)) ! abs is used so that negative numbers can also be input
     NDIGITS = floor(log10(aux)) + 1
-    
+
   end function NDIGITS
-  
+
 ! **********************************************************************************************************************************************************
 
   ! returns the number of digits of an input integer of kind 16
   integer function NDIGITS_16(input)
-    
+
     integer (kind=16), intent(IN) :: input
     real :: aux
-    
-    aux = abs(real(input)) ! abs is used so that negative numbers can also be input    
+
+    aux = abs(real(input)) ! abs is used so that negative numbers can also be input
     NDIGITS_16 = floor(log10(aux)) + 1
-    
+
   end function NDIGITS_16
-  
+
 ! **********************************************************************************************************************************************************
 
   subroutine EXTRACT_DIGITS(input,output_vector)
-  
+
     integer, intent(IN) :: input
     integer, dimension(:), intent(OUT) :: output_vector
     integer :: i, aux, num_digits
-  
+
     output_vector = 0
     num_digits = NDIGITS(input)
-    
+
     aux = input
     do i = 1,num_digits
       output_vector(i) = aux - (aux/10)*10
       aux = aux / 10
     enddo
-    
+
   end subroutine EXTRACT_DIGITS
-  
+
 ! **********************************************************************************************************************************************************
 
   subroutine EXTRACT_DIGITS_16(input,output_vector)
-  
+
     integer (kind=16), intent(IN) :: input
     integer, dimension(:), intent(OUT) :: output_vector
     integer (kind=16) :: aux
     integer :: i, num_digits
-  
+
     output_vector = 0
     num_digits = NDIGITS_16(input)
-    
+
     aux = input
     do i = 1,num_digits
       output_vector(i) = aux - (aux/10)*10
       aux = aux / 10
     enddo
-    
+
   end subroutine EXTRACT_DIGITS_16
-  
+
 ! **********************************************************************************************************************************************************
 
   integer function EXTRACT_SINGLE_DIGIT(input,pos)
-  
+
     integer, intent(IN) :: input, pos
     integer :: aux
- 
-    aux = input    
+
+    aux = input
     aux = aux / (10 ** (pos - 1))
     EXTRACT_SINGLE_DIGIT = aux - (aux/10)*10
-        
+
   end function EXTRACT_SINGLE_DIGIT
-  
+
 ! **********************************************************************************************************************************************************
-  
+
   integer function EXTRACT_SINGLE_DIGIT_16(input,pos)
-  
+
     integer (kind=16), intent(IN) :: input
     integer, intent(IN) :: pos
     integer (kind=16) :: aux
- 
+
     aux = input
     aux = aux / (10_16 ** (pos - 1))
     EXTRACT_SINGLE_DIGIT_16 = aux - (aux / 10) * 10
-        
+
   end function EXTRACT_SINGLE_DIGIT_16
-  
+
 ! **********************************************************************************************************************************************************
 
   ! converts decimal to binary, output is a vector. Best to use together with NDIGITSBIN as to allocate the output_vector the correct size, avoiding trailing zeroes
   subroutine DEC2BIN(input,output_vector)
-  
+
     integer, intent(IN) :: input
     integer, dimension(:), intent(OUT) :: output_vector
     integer :: aux
     integer :: counter
-    
-    output_vector = 0    
+
+    output_vector = 0
     aux = input
     counter = 1
-    
+
     do
       output_vector(counter) = mod(aux,2)
       aux = aux / 2
       counter = counter + 1
       if (aux == 0) exit
-    enddo   
-  
+    enddo
+
   end subroutine DEC2BIN
-  
+
 ! **********************************************************************************************************************************************************
 
   integer (kind=16) function DEC2BIN_16(input)
-  
+
     integer (kind=16), intent(IN) :: input
     integer (kind=16) :: aux
     integer :: counter
-    
+
     aux = input
     counter = 0
     DEC2BIN_16 = 0
-    
+
     do
       DEC2BIN_16 = DEC2BIN_16 + mod(aux,2) * 10_16 ** counter
-      aux = aux / 2      
+      aux = aux / 2
       counter = counter + 1
       if (aux == 0) exit
-    enddo        
-  
+    enddo
+
   end function DEC2BIN_16
-  
+
 ! **********************************************************************************************************************************************************
 
   ! returns the number of digits of a decimal input integer as if it was a binary number (e.g. 16 returns 5, since 16 = 10000 in binary, which has 5 digits)
   integer function NDIGITSBIN(input)
-  
+
     integer, intent(IN) :: input
     integer :: aux
-    
+
     aux = input
     NDIGITSBIN = 0
-    
+
     do
-      aux = aux / 2      
+      aux = aux / 2
       NDIGITSBIN = NDIGITSBIN + 1
       if (aux == 0) exit
-    enddo     
-    
+    enddo
+
   end function NDIGITSBIN
 
 ! **********************************************************************************************************************************************************
-  
+
   subroutine RETROGRADE_VECTOR(vector)
-  
+
     integer, dimension(:), intent(INOUT) :: vector
     integer, dimension(:), allocatable :: vector_aux
     integer :: i
-    
+
     allocate(vector_aux(SIZE(vector)))
 
     vector_aux = vector
-    
+
     do i = 1, SIZE(vector)
       vector(i) = vector_aux(SIZE(vector) + 1 - i)
     enddo
-  
+
   end subroutine RETROGRADE_VECTOR
-  
+
 ! **********************************************************************************************************************************************************
-  
+
   logical function UNIQUE_ELEMENTS(vector)
-  
+
     integer, dimension(:), intent(IN) :: vector
     integer :: i, j
-    
+
     UNIQUE_ELEMENTS = .TRUE.
-    
+
     do i = 1, SIZE(vector)
       do j = i + 1, SIZE(vector)
         if (vector(i) == vector(j)) then
@@ -641,11 +654,11 @@ contains
         endif
       enddo
     enddo
-    
+
     10 return
-  
+
   end function UNIQUE_ELEMENTS
-  
+
 ! **********************************************************************************************************************************************************
 
 end module usefulLibrary
