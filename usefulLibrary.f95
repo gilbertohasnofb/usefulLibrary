@@ -1,42 +1,42 @@
-! ************************************************************************************************************************************** !
-!                                                                                                                                        !
-!                                              Library of Useful Fortran Subroutines v1.0                                                !
-!                                                              LINUX VERSION                                                             !
-!                                                                                                                                        !
-!                                           by Gilberto Agostinho (gilbertohasnofb@gmail.com)                                            !
-!                                                                                                                                        !
-! ************************************************************************************************************************************** !
-!                                                                                                                                        !
-! List of all subroutines and functions included in this library:                                                                        !
-!                                                                                                                                        !
-! INIT_RANDOM_SEED()                                                                                                                     !
-! INIT_FIXED_SEED(INTEGER)                                                                                                               !
-! RANDOM_INT(integer,integer,integer)                                                                                                    !
-! LCASE(character)                                                                                                                       !
-! BUBBLE_SORT(integer)                                                                                                                   !
-! SLEEP_MS(integer)                                                                                                                      !
-! PERCENTAGE(real,real,real,real)                                                                                                        !
-! SERIALIZE(integer,integer,integer)                                                                                                     !
-! MtoF(integer)                                                                                                                          !
-! FtoM(real)                                                                                                                             !
-! MtoL(integer)                                                                                                                          !
-! LtoM(character)                                                                                                                        !
-! RANDOM_INT_GAUSSIAN(integer,integer,integer,real,integer)                                                                              !
-! FACTORIAL(integer)                                                                                                                     !
-! QUICKSORT(integer,integer,integer)                                                                                                     !
-! NDIGITS(integer)                                                                                                                       !
-! NDIGITS_16(integer)                                                                                                                    !
-! EXTRACT_DIGITS(integer,integer)                                                                                                        !
-! EXTRACT_DIGITS_16(integer,integer)                                                                                                     !
-! EXTRACT_SINGLE_DIGIT(integer,integer)                                                                                                  !
-! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                               !
-! DEC2BIN(integer)                                                                                                                       !
-! DEC2BIN_16(integer)                                                                                                                    !
-! NDIGITSBIN(integer)                                                                                                                    !
-! RETROGRADE_VECTOR(integer)                                                                                                             !
-! UNIQUE_ELEMENTS(integer)                                                                                                               !
-!                                                                                                                                        !
-! ************************************************************************************************************************************** !
+! ********************************************************************************************************************************************************** !
+!                                                                                                                                                            !
+!                                                        Library of Useful Fortran Subroutines v1.1                                                          !
+!                                                                        LINUX VERSION                                                                       !
+!                                                                                                                                                            !
+!                                                     by Gilberto Agostinho (gilbertohasnofb@gmail.com)                                                      !
+!                                                                                                                                                            !
+! ********************************************************************************************************************************************************** !
+!                                                                                                                                                            !
+! List of all subroutines and functions included in this library:                                                                                            !
+!                                                                                                                                                            !
+! INIT_RANDOM_SEED()                                                                                                                                         !
+! SET_RANDOM_SEED()                                                                                                                                          !
+! RANDOM_INT(integer,integer,integer)                                                                                                                        !
+! LCASE(character)                                                                                                                                           !
+! BUBBLE_SORT(integer)                                                                                                                                       !
+! SLEEP_MS(integer)                                                                                                                                          !
+! PERCENTAGE(real,real,real,real)                                                                                                                            !
+! SERIALIZE(integer,integer,integer)                                                                                                                         !
+! MtoF(integer)                                                                                                                                              !
+! FtoM(real)                                                                                                                                                 !
+! MtoL(integer)                                                                                                                                              !
+! LtoM(character)                                                                                                                                            !
+! RANDOM_INT_GAUSSIAN(integer,integer,integer,real,integer)                                                                                                  !
+! FACTORIAL(integer)                                                                                                                                         !
+! QUICKSORT(integer,integer,integer)                                                                                                                         !
+! NDIGITS(integer)                                                                                                                                           !
+! NDIGITS_16(integer)                                                                                                                                        !
+! EXTRACT_DIGITS(integer,integer)                                                                                                                            !
+! EXTRACT_DIGITS_16(integer,integer)                                                                                                                         !
+! EXTRACT_SINGLE_DIGIT(integer,integer)                                                                                                                      !
+! EXTRACT_SINGLE_DIGIT_16(integer,integer)                                                                                                                   !
+! DEC2BIN(integer)                                                                                                                                           !
+! DEC2BIN_16(integer)                                                                                                                                        !
+! NDIGITSBIN(integer)                                                                                                                                        !
+! RETROGRADE_VECTOR(integer)                                                                                                                                 !
+! UNIQUE_ELEMENTS(integer)                                                                                                                                   !
+!                                                                                                                                                            !
+! ********************************************************************************************************************************************************** !
 
 module usefulLibrary
 implicit none
@@ -65,23 +65,25 @@ contains
 
   end subroutine INIT_RANDOM_SEED
 
-! **********************************************************************************************************************************************************
+ ! **********************************************************************************************************************************************************
 
-  ! Subroutine INIT_FIXED_SEED: changes the default seed for the PRNG but still assures that RANDOM will output the same numbers on each run
-  subroutine INIT_FIXED_SEED(my_seed_input)
-    integer, intent(IN) :: my_seed_input
-    integer, dimension(:), allocatable :: seed
-    integer :: i, n
+   ! Subroutine SET_RANDOM_SEED: sets the random seed of the PRNG using an input integer
+   subroutine SET_RANDOM_SEED(x)
 
-    call random_seed(size = n)
-    allocate(seed(n))
+     integer, intent(IN) :: x
+     integer :: i, N
+     integer, dimension(:), allocatable :: seed
 
-    seed = my_seed_input + 37 * (/ (i - 1, i = 1, n) /)
-    call random_seed(put = seed)
+     call RANDOM_SEED(size=N)
+     allocate(seed(N))
 
-    deallocate(seed)
+     seed = x + 37 * (/ (i - 1, i = 1, N) /)
 
-    end subroutine INIT_FIXED_SEED
+     call RANDOM_SEED(put=seed)
+
+     deallocate(seed)
+
+   end subroutine SET_RANDOM_SEED
 
   ! **********************************************************************************************************************************************************
 
@@ -89,7 +91,7 @@ contains
   subroutine RANDOM_INT(x,N,offset) ! i.e., if offset=0: generates an integer x between 0 and (N-1). If offset=/=0: generates an integer x between (offset) and ((N-1)+offset). There are always N possibilities.
 
     integer, intent(OUT) :: x
-    integer, intent(IN),optional :: N, offset
+    integer, intent(IN), optional :: N, offset
     integer :: N_AUX, offset_AUX
     real :: random_AUX
 
@@ -110,7 +112,7 @@ contains
   ! Converts any word into lower case
   subroutine LCASE(text_string)
 
-    character (LEN=*) , intent(INOUT) :: text_string
+    character (LEN=*), intent(INOUT) :: text_string
     integer :: i, N, check
 
     N = LEN(text_string)
@@ -420,25 +422,12 @@ contains
   ! Bubble Sort algorithm
   ! Adapted from https://gist.github.com/t-nissie/479f0f16966925fa29ea
 
-  recursive subroutine QUICKSORT(vector, first_index_arg, last_index_arg)
+  recursive subroutine QUICKSORT(vector, first_index, last_index)
 
     integer, intent(INOUT), dimension(:) :: vector
-    integer, intent(IN), optional :: first_index_arg, last_index_arg
-    integer :: first_index, last_index
+    integer, intent(IN) :: first_index, last_index
     integer :: pivot, temp
     integer :: i, j
-
-    if (present(first_index_arg)) then
-        first_index = first_index_arg
-    else
-        first_index = 1
-    endif
-
-    if (present(last_index_arg)) then
-        last_index = last_index_arg
-    else
-        last_index = SIZE(vector)
-    endif
 
     pivot = vector((first_index + last_index) / 2)
     i = first_index

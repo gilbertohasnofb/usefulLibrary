@@ -7,6 +7,7 @@ List of available subroutines and functions
 -------------------------------------------
 
 - INIT_RANDOM_SEED
+- SET_RANDOM_SEED
 - RANDOM_INT
 - LCASE
 - BUBBLE_SORT
